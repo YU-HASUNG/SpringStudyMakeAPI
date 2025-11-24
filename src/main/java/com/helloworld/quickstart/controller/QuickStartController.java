@@ -2,9 +2,13 @@ package com.helloworld.quickstart.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.helloworld.quickstart.dto.ItemDto;
+import com.helloworld.quickstart.dto.ResponseDto;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -37,5 +41,13 @@ public class QuickStartController {
 	public String getCompany(@PathVariable("id") String id) {
 		log.info("id: {}", id);
 		return "ok";
+	}
+
+	@PostMapping("/item")
+	public ResponseDto registerItem(@RequestBody ItemDto item) {
+		log.info("item: {}", item);
+		ResponseDto responseDto = new ResponseDto();
+		responseDto.setMessage("ok");
+		return responseDto;
 	}
 }
