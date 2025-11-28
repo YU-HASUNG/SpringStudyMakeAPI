@@ -62,4 +62,11 @@ public class QuickStartController {
 		responseDto.setMessage("fail ");
 		return responseDto;
 	}
+
+	@GetMapping("/item")
+	public ItemDto getItem(@RequestParam("id") String id) {
+		ItemDto  response = quickService.findItem(id);
+		return response;
+	}
+
 }
