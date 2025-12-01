@@ -65,7 +65,8 @@ public class QuickStartController {
 
 	@GetMapping("/item")
 	public ItemDto getItem(@RequestParam("id") String id) {
-		ItemDto  response = quickService.findItem(id);
+		// ItemDto  response = quickService.findItem(id);
+		ItemDto  response = quickService.getItemById(id);
 		return response;
 	}
 
